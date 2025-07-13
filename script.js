@@ -254,7 +254,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const remainingItems = groceryItems.filter(item => !item.purchased).length;
         
         totalItemsEl.textContent = totalItems;
-        totalCostEl.textContent = totalCost;
+        totalCostEl.textContent = `Rp${totalCost.toLocaleString("id-ID")}`;
         remainingItemsEl.textContent = remainingItems;
     }
     
