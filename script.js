@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <span>${item.name}</span>
                     ${item.notes ? '<i class="fas fa-sticky-note" title="' + item.notes + '"></i>' : ''}
                 </div>
-                <div class="item-price">${item.price.toFixed(0)}</div>
+                <div class="item-price">Rp${item.price.toLocaleString("id-ID")}</div>
                 <div class="item-store">
                     <span class="store-icon">${item.store.charAt(0)}</span>
                     <span>${item.store}</span>
