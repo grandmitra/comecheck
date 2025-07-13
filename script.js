@@ -254,7 +254,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const remainingItems = groceryItems.filter(item => !item.purchased).length;
         
         totalItemsEl.textContent = totalItems;
-        totalCostEl.textContent = `${totalCost.toFixed(0)}`;
+        totalCostEl.textContent = totalCost;
         remainingItemsEl.textContent = remainingItems;
     }
     
