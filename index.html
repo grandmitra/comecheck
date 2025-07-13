@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gmb ComeCheck</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="light-mode">
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1><i class="fas fa-shopping-basket"></i>GMB Check</h1>
+                <div class="theme-toggle">
+                    <i class="fas fa-sun"></i>
+                    <label class="switch">
+                        <input type="checkbox" id="themeToggle">
+                        <span class="slider round"></span>
+                    </label>
+                    <i class="fas fa-moon"></i>
+                </div>
+            </div>
+            <p class="subtitle">Compare Prices across stores</p>
+        </header>
+
+        <div class="app-container">
+            <div class="controls">
+                <div class="search-filter">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="searchInput" placeholder="Search...">
+                    </div>
+                    <select id="storeFilter">
+                        <option value="all">All Stores</option>
+                        <option value="Mitra10">Mitra10</option>
+                        <option value="Depo">Depo</option>
+                        <option value="DB">DB</option>
+                        <option value="Tradi">Tradi</option>
+                        <option value="Lainnya">Lainnya</option>
+                    </select>
+                    <select id="sortBy">
+                        <option value="name">Sort by Name</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="store">Sort by Store</option>
+                        <option value="date">Sort by Date</option>
+                    </select>
+                </div>
+
+                <button id="addItemBtn" class="btn-primary">
+                    <i class="fas fa-plus"></i> Add Item
+                </button>
+            </div>
+
+            <div class="stats">
+                <div class="stat-card">
+                    <h3>Total Items</h3>
+                    <p id="totalItems">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Total</h3>
+                    <p id="totalCost">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Remaining</h3>
+                    <p id="remainingItems">0</p>
+                </div>
+            </div>
+
+            <div class="grocery-list">
+                <div class="list-header">
+                    <div class="header-item">Item</div>
+                    <div class="header-item">Price</div>
+                    <div class="header-item">Store</div>
+                    <div class="header-item">Date</div>
+                    <div class="header-item">Actions</div>
+                </div>
+                <div id="groceryItems" class="items-container">
+                    <!-- Items will be added here dynamically -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Item Modal -->
+    <div id="itemModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 id="modalTitle">Add New Item</h2>
+            <form id="groceryForm">
+                <input type="hidden" id="itemId">
+                <div class="form-group">
+                    <label for="itemName">Item Name</label>
+                    <input type="text" id="itemName" required>
+                </div>
+                <div class="form-group">
+                    <label for="itemPrice">Price (Rp)</label>
+                    <input type="number" id="itemPrice" min="0" step="1000" required>
+                </div>
+                <div class="form-group">
+                    <label for="itemStore">Store</label>
+                    <select id="itemStore" required>
+                        <option value="all">All Stores</option>
+                        <option value="Mitra10">Mitra10</option>
+                        <option value="Depo">Depo</option>
+                        <option value="DB">DB</option>
+                        <option value="Tradi">Tradi</option>
+                        <option value="Lainnya">Lainnya</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="itemNotes">Notes</label>
+                    <textarea id="itemNotes" rows="3"></textarea>
+                </div>
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="itemPurchased">
+                    <label for="itemPurchased">Purchased</label>
+                </div>
+                <button type="submit" class="btn-primary">Save Item</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
